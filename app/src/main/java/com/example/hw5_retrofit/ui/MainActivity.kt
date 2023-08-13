@@ -2,6 +2,7 @@ package com.example.hw5_retrofit.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.hw5_retrofit.MainApplication
 import com.example.hw5_retrofit.common.viewBinding
 import com.example.hw5_retrofit.databinding.ActivityMainBinding
 
@@ -12,5 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        MainApplication.provideRetrofit()
     }
 }
