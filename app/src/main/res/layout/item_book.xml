@@ -12,7 +12,9 @@
     app:cornerRightBottom="10dp"
     app:cornerRightTop="10dp">
 
+
     <ImageView
+        android:layout_marginTop="40dp"
         android:id="@+id/iv_book"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
@@ -21,15 +23,23 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <ImageView
+        android:id="@+id/iv_best_seller"
+        android:layout_width="116dp"
+        android:layout_height="65dp"
+        android:src="@drawable/ic_badge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:gravity="center"
         android:lines="2"
         android:maxLines="2"
-        android:gravity="center"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_book" />

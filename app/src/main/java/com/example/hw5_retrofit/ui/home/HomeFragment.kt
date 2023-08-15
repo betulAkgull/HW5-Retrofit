@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.hw5_retrofit.MainApplication
 import com.example.hw5_retrofit.R
 import com.example.hw5_retrofit.common.viewBinding
@@ -13,11 +14,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_home), BooksAdapter.BookListener {
 
     private val binding by viewBinding(FragmentHomeBinding::bind)
 
-    private val booksAdapter by lazy { BooksAdapter() }
+    private val booksAdapter by lazy { BooksAdapter(this) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,5 +47,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
 
         })
+    }
+
+    override fun onBookClicked(id: Int) {
+        val action = HomeFragmentDirections.homeToDetail(id)
+        findNavController().navigate(action)
     }
 }

@@ -6,11 +6,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hw5_retrofit.common.invisible
 import com.example.hw5_retrofit.common.loadImage
+import com.example.hw5_retrofit.common.visible
 import com.example.hw5_retrofit.data.model.Book
 import com.example.hw5_retrofit.databinding.ItemBookBinding
 
-class BooksAdapter : ListAdapter<Book, BooksAdapter.BookViewHolder>(BookDiffCallback()) {
+class BooksAdapter(
+    private val bookListener: BookListener
+) : ListAdapter<Book, BooksAdapter.BookViewHolder>(BookDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder =
         BookViewHolder(
@@ -21,14 +25,23 @@ class BooksAdapter : ListAdapter<Book, BooksAdapter.BookViewHolder>(BookDiffCall
         holder.bind(getItem(position))
 
 
-    class BookViewHolder(private val binding: ItemBookBinding) :
+    inner class BookViewHolder(private val binding: ItemBookBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(book: Book) {
             with(binding) {
+                ivBestSeller.invisible()
                 tvTitle.text = book.name
                 tvPrice.text = "${book.price} $"
 
                 ivBook.loadImage(book.imageUrl)
+
+                if(book.isBestSeller == true){
+                    ivBestSeller.visible()
+                }
+
+                root.setOnClickListener {
+                    bookListener.onBookClicked(book.id ?: 1)
+                }
 
             }
         }
@@ -44,5 +57,10 @@ class BooksAdapter : ListAdapter<Book, BooksAdapter.BookViewHolder>(BookDiffCall
             return oldItem == newItem
         }
 
+    }
+
+    interface BookListener {
+        fun onBookClicked(id:Int)
+        //fun onFavClicked eklenebilir
     }
 }
