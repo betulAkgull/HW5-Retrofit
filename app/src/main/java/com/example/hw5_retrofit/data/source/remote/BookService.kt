@@ -19,4 +19,5 @@ interface BookService {
         @Query("id") id: Int
     ): Call<GetBookDetailResponse>
 
+
 }

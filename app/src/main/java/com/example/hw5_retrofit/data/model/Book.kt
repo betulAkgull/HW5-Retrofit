@@ -11,5 +11,6 @@ data class Book(
     @SerializedName("is_best_seller") val isBestSeller: Boolean?,
     val name: String?,
     val price: Double?,
-    val publisher: String?
+    val publisher: String?,
+    var isFav: Boolean = false
 )

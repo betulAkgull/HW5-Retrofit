@@ -13,6 +13,9 @@
         <action
             android:id="@+id/homeToDetail"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/homeToFavorites"
+            app:destination="@id/favoritesFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -24,5 +27,14 @@
             android:name="id"
             app:argType="integer" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.hw5_retrofit.ui.favorite.FavoritesFragment"
+        android:label="FavoritesFragment"
+        tools:layout="@layout/fragment_favorites">
+        <action
+            android:id="@+id/favoritesToDetail"
+            app:destination="@id/detailFragment" />
     </fragment>
 </navigation>

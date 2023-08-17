@@ -14,10 +14,10 @@
 
 
     <ImageView
-        android:layout_marginTop="40dp"
         android:id="@+id/iv_book"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,7 +28,20 @@
         android:layout_width="116dp"
         android:layout_height="65dp"
         android:src="@drawable/ic_badge"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btn_favorite"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="FAV_BUTTON"
+        android:src="@drawable/ic_favorite_empty"
+        app:layout_constraintBottom_toTopOf="@id/iv_book"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

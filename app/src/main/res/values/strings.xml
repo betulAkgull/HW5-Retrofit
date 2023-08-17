@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HW5-Retrofit</string>
+    <string name="kitap_bulunamadi">Kitap Bulunamadı.</string>
 </resources>

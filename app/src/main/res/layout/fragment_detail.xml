@@ -16,10 +16,12 @@
         android:id="@+id/iv_book"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
 
     <TextView
         android:id="@+id/tv_title"

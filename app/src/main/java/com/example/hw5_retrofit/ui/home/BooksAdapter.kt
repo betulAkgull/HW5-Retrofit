@@ -6,15 +6,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.hw5_retrofit.common.invisible
+import com.example.hw5_retrofit.common.favorited
 import com.example.hw5_retrofit.common.loadImage
+import com.example.hw5_retrofit.common.unFavorite
 import com.example.hw5_retrofit.common.visible
 import com.example.hw5_retrofit.data.model.Book
+import com.example.hw5_retrofit.data.source.local.FavBook
 import com.example.hw5_retrofit.databinding.ItemBookBinding
 
 class BooksAdapter(
     private val bookListener: BookListener
 ) : ListAdapter<Book, BooksAdapter.BookViewHolder>(BookDiffCallback()) {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder =
         BookViewHolder(
@@ -29,13 +32,31 @@ class BooksAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(book: Book) {
             with(binding) {
-                ivBestSeller.invisible()
+
+
+                if (book.isFav) {
+                    btnFavorite.favorited()
+                }
+
                 tvTitle.text = book.name
                 tvPrice.text = "${book.price} $"
 
                 ivBook.loadImage(book.imageUrl)
 
-                if(book.isBestSeller == true){
+
+                btnFavorite.setOnClickListener {
+                    if (book.isFav) {
+                        book.isFav = false
+                        btnFavorite.unFavorite()
+                        bookListener.onFavClicked(false, book)
+                    } else {
+                        book.isFav = true
+                        btnFavorite.favorited()
+                        bookListener.onFavClicked(true, book)
+                    }
+                }
+
+                if (book.isBestSeller == true) {
                     ivBestSeller.visible()
                 }
 
@@ -59,8 +80,11 @@ class BooksAdapter(
 
     }
 
+
     interface BookListener {
-        fun onBookClicked(id:Int)
-        //fun onFavClicked eklenebilir
+        fun onBookClicked(id: Int)
+
+        fun onFavClicked(isFavorited: Boolean, book: Book)
+
     }
 }
