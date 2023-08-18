@@ -7,11 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.hw5_retrofit.R
 import com.example.hw5_retrofit.common.viewBinding
-import com.example.hw5_retrofit.data.model.Book
 import com.example.hw5_retrofit.data.source.local.FavBook
 import com.example.hw5_retrofit.data.source.local.FavBookDb
 import com.example.hw5_retrofit.databinding.FragmentFavoritesBinding
-import com.example.hw5_retrofit.ui.home.BooksAdapter
 
 class FavoritesFragment : Fragment(R.layout.fragment_favorites), FavBooksAdapter.FavBooksListener {
 

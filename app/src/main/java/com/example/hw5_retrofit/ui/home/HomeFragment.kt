@@ -1,6 +1,8 @@
 package com.example.hw5_retrofit.ui.home
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -67,21 +69,24 @@ class HomeFragment : Fragment(R.layout.fragment_home), BooksAdapter.BookListener
 
                     binding.radioGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
                         when (checkedId) {
-                            binding.rbSortBest.id -> booksAdapter.submitList(result.filter { it.isBestSeller == true }
-                                .sortedBy { it.price })
+                            binding.rbSortBest.id -> {
+                                booksAdapter.submitList(result.filter { it.isBestSeller == true }
+                                    .sortedBy { it.price })
+                            }
 
-                            binding.rbSortPrice.id ->
+                            binding.rbSortPrice.id -> {
                                 booksAdapter.submitList(result.sortedBy { it.price })
+                            }
+
 
                             else -> radioGroup.clearCheck()
 
                         }
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            binding.rvBooks.smoothScrollToPosition(0)
+                        }, 1000)
+
                     }
-
-//                    binding.rvBooks.let {
-//                        it.smoothScrollToPosition(it.bottom)
-//                    }
-
 
 
                 } else {

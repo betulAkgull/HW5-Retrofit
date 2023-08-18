@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hw5_retrofit.common.favorited
 import com.example.hw5_retrofit.common.loadImage
 import com.example.hw5_retrofit.common.unFavorite
-import com.example.hw5_retrofit.common.visible
-import com.example.hw5_retrofit.data.model.Book
 import com.example.hw5_retrofit.data.source.local.FavBook
 import com.example.hw5_retrofit.databinding.ItemBookBinding
 

@@ -10,13 +10,13 @@ abstract class FavBookDb : RoomDatabase() {
 
     abstract fun favBookDao(): FavBookDao
 
-    companion object{
+    companion object {
 
         private var instance: FavBookDb? = null
 
         fun getFavBookDb(context: Context): FavBookDb? {
 
-            if(instance == null){
+            if (instance == null) {
                 instance = Room.databaseBuilder(
                     context,
                     FavBookDb::class.java,

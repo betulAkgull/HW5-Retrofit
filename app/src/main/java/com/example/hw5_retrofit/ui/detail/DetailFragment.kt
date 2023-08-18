@@ -7,15 +7,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.hw5_retrofit.MainApplication
 import com.example.hw5_retrofit.R
-import com.example.hw5_retrofit.common.favorited
 import com.example.hw5_retrofit.common.loadImage
-import com.example.hw5_retrofit.common.unFavorite
 import com.example.hw5_retrofit.common.viewBinding
 import com.example.hw5_retrofit.data.model.GetBookDetailResponse
-import com.example.hw5_retrofit.data.model.GetBooksResponse
 import com.example.hw5_retrofit.data.source.local.FavBookDb
 import com.example.hw5_retrofit.databinding.FragmentDetailBinding
-import com.example.hw5_retrofit.ui.home.BooksAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,7 +1,7 @@
 package com.example.hw5_retrofit.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.hw5_retrofit.MainApplication
@@ -19,9 +19,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        with(binding){
-            val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-            NavigationUI.setupWithNavController(bottomNav,navHostFragment.navController)
+        with(binding) {
+            val navHostFragment =
+                supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+            NavigationUI.setupWithNavController(bottomNav, navHostFragment.navController)
 
             navHostFragment.navController.addOnDestinationChangedListener { controller, destination, arguments ->
                 if (destination.id == R.id.detailFragment) {

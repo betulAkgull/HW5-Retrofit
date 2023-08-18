@@ -1,7 +1,6 @@
 package com.example.hw5_retrofit.common
 
 import android.view.View
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import com.bumptech.glide.Glide
@@ -11,19 +10,19 @@ fun ImageView.loadImage(url: String?) {
     Glide.with(this.context).load(url).into(this)
 }
 
-fun View.visible(){
+fun View.visible() {
     visibility = View.VISIBLE
 }
 
-fun View.invisible(){
+fun View.invisible() {
     visibility = View.GONE
 }
 
-fun ImageButton.favorited(){
+fun ImageButton.favorited() {
     setImageResource(R.drawable.ic_favorite)
 }
 
-fun ImageButton.unFavorite(){
+fun ImageButton.unFavorite() {
     setImageResource(R.drawable.ic_favorite_empty)
 }
 
