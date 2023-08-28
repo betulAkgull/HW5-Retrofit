@@ -17,7 +17,7 @@ User can see 'Best Selling' books, sort them by the price and add them on their 
 - Retrofit
 - Glide
 - Room
-- Navigation Component: NavHostFragment
+- Navigation Component: NavHostFragment, BottomNavigationView
 - RecyclerView
 - View Binding
 
